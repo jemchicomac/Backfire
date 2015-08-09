@@ -79,6 +79,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -114,6 +115,8 @@ public class Backfire extends ApplicationAdapter {
 		root.add(new TextButton("Button 1", skin));
 		root.add(new TextButton("Button 2", skin)).row();
 		root.add("Press spacebar to change the viewport:").colspan(2).row();
+		root.add("Press 'F' for fullscreen and 'ESC' for exit").colspan(2).row();
+		
 		root.add(label).colspan(2);
 		stage.addActor(root);
 
@@ -132,6 +135,13 @@ public class Backfire extends ApplicationAdapter {
 					stage.setViewport(viewport);
 					resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 				}
+				
+				if (keycode == Input.Keys.F) {
+					Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode().width, Gdx.graphics.getDesktopDisplayMode().height, true);
+				}
+				
+				if (keycode == Keys.ESCAPE) Gdx.app.exit();
+				
 				return false;
 			}
 		}, stage));
