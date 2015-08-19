@@ -4,11 +4,13 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 /*public class Backfire extends ApplicationAdapter {
@@ -138,7 +140,7 @@ public class Backfire extends ApplicationAdapter {
 
 		Table root = new Table(skin);
 		root.setFillParent(true);
-		//root.setBackground(skin.getDrawable("default-pane"));
+		root.setBackground(skin.getDrawable("default-pane"));
 		root.debug().defaults().space(6);
 		root.add(new TextButton("Button 1", skin));
 		root.add(new TextButton("Button 2", skin)).row();
@@ -203,6 +205,7 @@ public class Backfire extends ApplicationAdapter {
 	}
 
 	public void render () {
+		
 		stage.act();
 
 		cam.update();
@@ -229,7 +232,6 @@ public class Backfire extends ApplicationAdapter {
 
 	public void resize (int width, int height) {
 		stage.getViewport().update(width, height, false);
-		//spriteBatch.setProjectionMatrix(cam.combined);		
 	}
 
 	public void dispose () {
